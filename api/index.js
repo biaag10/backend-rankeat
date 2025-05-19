@@ -13,11 +13,11 @@ db.connect();
 const app = express();
 
 // Configuração do CORS
-app.use(cors({
-  origin: 'https://frontend-workout-tracker.vercel.app',  // permite requisições do frontend na porta 3001
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],  // métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'],  // cabeçalhos permitidos
-}));
+// app.use(cors({
+//   origin: 'https://frontend-workout-tracker.vercel.app',  // permite requisições do frontend na porta 3001
+//   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],  // métodos permitidos
+//   allowedHeaders: ['Content-Type', 'Authorization'],  // cabeçalhos permitidos
+// }));
 
 app.use(express.json()); // para aceitar JSON no corpo das requisições
 
