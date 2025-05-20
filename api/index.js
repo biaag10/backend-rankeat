@@ -16,18 +16,18 @@ db.connect();
 const app = express();
 
 // Configuração do CORS
-// app.use(cors({
-//   origin: 'https://frontend-workout-tracker.vercel.app',  // permite requisições do frontend na porta 3001
-//   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],  // métodos permitidos
-//   allowedHeaders: ['Content-Type', 'Authorization'],  // cabeçalhos permitidos
-// }));
+app.use(cors({
+  origin: 'http://localhost:5173',  // permite requisições do frontend na porta 3001
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],  // métodos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'],  // cabeçalhos permitidos
+}));
 
 app.use(express.json()); // para aceitar JSON no corpo das requisições
 
 app.use("/users", userRoutes); // define o prefixo para as rotas de usuário
 app.use("/secure", exampleRoute); // define o prefixo para as rotas de exemplo
 app.use('/', SearchHistoryRoute); // define o prefixo para as rotas de histórico de buscas
-app.use('/', FavoriteRoute); // define o prefixo para as rotas de favoritos
+app.use('/favorites', FavoriteRoute); // define o prefixo para as rotas de favoritos
 
 app.get('/', (req, res) => {
   res.send({ message: 'API is running...' });

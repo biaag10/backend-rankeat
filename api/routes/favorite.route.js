@@ -5,8 +5,8 @@ import verifyToken from "../middlewares/jwt.token.middleware.js";
 const router = express.Router();
 
 // Favoritos
-router.post('/favorites', verifyToken,  favoriteController.addFavorite);
-router.delete('/favorites/:userId/:restaurantId', verifyToken, favoriteController.removeFavorite);
-router.get('/favorites/:userId', verifyToken, favoriteController.getFavorites);
+router.post('/', verifyToken,  favoriteController.addFavorite);
+router.delete('/:userId/:restaurantId', verifyToken, favoriteController.removeFavorite);
+router.get('/:userId', verifyToken, favoriteController.getFavorites);
 
 export default router;
