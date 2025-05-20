@@ -6,5 +6,6 @@ export async function saveSearch(data) {
 }
 
 export async function getRecentSearches(limit = 10) {
+  console.log("Buscando históricos de busca...");
   return SearchHistory.find().sort({ searchedAt: -1 }).limit(limit);
 }

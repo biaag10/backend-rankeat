@@ -6,6 +6,8 @@ import User from './models/User.js'; // cria a collection de users
 import exampleRoute from './routes/protected.route.js'; 
 import cors from 'cors'; // importa o CORS
 import SearchHistory from './models/SearchHistory.js'; // cria a collection de histórico de buscas
+import SearchHistoryRoute from './routes/search-history.route.js'; // importa as rotas de histórico de buscas
+import FavoriteRoute from './routes/favorite.route.js'; // importa as rotas de favoritos
 import Favorite from './models/Favorite.js'; // cria a collection de favoritos
 
 dotenv.config();
@@ -24,8 +26,8 @@ app.use(express.json()); // para aceitar JSON no corpo das requisições
 
 app.use("/users", userRoutes); // define o prefixo para as rotas de usuário
 app.use("/secure", exampleRoute); // define o prefixo para as rotas de exemplo
-app.use('/search-history', SearchHistory); // define o prefixo para as rotas de histórico de buscas
-app.use('/favorites', Favorite); // define o prefixo para as rotas de favoritos
+app.use('/', SearchHistoryRoute); // define o prefixo para as rotas de histórico de buscas
+app.use('/', FavoriteRoute); // define o prefixo para as rotas de favoritos
 
 app.get('/', (req, res) => {
   res.send({ message: 'API is running...' });

@@ -1,16 +1,11 @@
 import express from 'express';
-import * as searchHistoryController from '../controllers/searchHistory.controller.js';
-import * as favoriteController from '../controllers/favorite.controller.js';
+import * as searchHistoryController from '../controllers/search-history.controller.js';
+import verifyToken from "../middlewares/jwt.token.middleware.js";  
 
 const router = express.Router();
 
 // Histórico de buscas
-router.post('/search-history', searchHistoryController.createSearchHistory);
-router.get('/search-history', searchHistoryController.getRecentSearches);
-
-// Favoritos
-router.post('/favorites', favoriteController.addFavorite);
-router.delete('/favorites/:userId/:restaurantId', favoriteController.removeFavorite);
-router.get('/favorites/:userId', favoriteController.getFavorites);
+router.post('/search-history', verifyToken, searchHistoryController.createSearchHistory);
+router.get('/search-history', verifyToken, searchHistoryController.getRecentSearches);
 
 export default router;
