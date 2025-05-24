@@ -9,11 +9,21 @@ import SearchHistory from './models/SearchHistory.js'; // cria a collection de h
 import SearchHistoryRoute from './routes/search-history.route.js'; // importa as rotas de histórico de buscas
 import FavoriteRoute from './routes/favorite.route.js'; // importa as rotas de favoritos
 import Favorite from './models/Favorite.js'; // cria a collection de favoritos
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './config/swagger.js';
+import { swaggerAuth } from './middlewares/swaggerAuth.js';
 
 dotenv.config();
 db.connect();
 
 const app = express();
+// app.use('/docs', swaggerAuth, swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
 
 // Configuração do CORS
 app.use(cors({
