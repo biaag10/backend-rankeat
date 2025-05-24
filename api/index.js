@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
   res.send({ message: 'API is running...' });
 });
 
-const PORT = process.env.PORT || 3001; // O Swagger foi configurado para localhost:3001, mas a API pode rodar em outra porta. Ajuste se necessário.
+const PORT = process.env.PORT || 3000; // O Swagger foi configurado para localhost:3001, mas a API pode rodar em outra porta. Ajuste se necessário.
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta http://localhost:${PORT}/`);
