@@ -7,10 +7,10 @@ curl --request GET \
   --verbose  # Remove caso não queira o debug completo
 
 # Teste de acesso sem token
-# curl --request GET \
-#   --url 'http://localhost:3000/api/search-history'
+ curl --request GET \
+   --url 'http://localhost:3000/api/search-history'
 
 # Teste de acesso com token inválido
-# curl --request GET \
-#   --url 'http://localhost:3000/api/search-history' \
-#   --header 'Authorization: Bearer <token_inválido>'
+ curl --request GET \
+   --url 'http://localhost:3000/api/search-history' \
+   --header 'Authorization: Bearer <token_inválido>'

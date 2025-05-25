@@ -13,26 +13,26 @@ curl --request POST \
   }'
 
 # Teste de acesso ao POST sem token
-# curl --request POST \
-#   --url 'http://localhost:3000/api/search-history' \
-#   --header 'Content-Type: application/json' \
-#   --data '{
-#     "cep": "01001000",
-#     "latitude": -23.55052,
-#     "longitude": -46.633308,
-#     "userId": "id_do_usuario_aqui",
-#     "ipAddress": "192.168.0.1"
-#   }'
+ curl --request POST \
+   --url 'http://localhost:3000/api/search-history' \
+   --header 'Content-Type: application/json' \
+   --data '{
+     "cep": "01001000",
+     "latitude": -23.55052,
+     "longitude": -46.633308,
+     "userId": "id_do_usuario_aqui",
+     "ipAddress": "192.168.0.1"
+   }'
 
 # Teste de acesso ao POST com token inválido
-# curl --request POST \
-#   --url 'http://localhost:3000/api/search-history' \
-#   --header 'Authorization: Bearer <token_inválido>' \
-#   --header 'Content-Type: application/json' \
-#   --data '{
-#     "cep": "01001000",
-#     "latitude": -23.55052,
-#     "longitude": -46.633308,
-#     "userId": "id_do_usuario_aqui",
-#     "ipAddress": "192.168.0.1"
-#   }'
+ curl --request POST \
+   --url 'http://localhost:3000/api/search-history' \
+   --header 'Authorization: Bearer <token_inválido>' \
+   --header 'Content-Type: application/json' \
+   --data '{
+     "cep": "01001000",
+     "latitude": -23.55052,
+     "longitude": -46.633308,
+     "userId": "id_do_usuario_aqui",
+     "ipAddress": "192.168.0.1"
+   }'

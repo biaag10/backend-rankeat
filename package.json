@@ -8,11 +8,13 @@
     "start:app": "nodemon api/index.js",
     "start:database": "docker compose up -d",
     "stop:database": "docker compose down",
-    "generate-secret-key": "node -e \"console.log(require('crypto').randomBytes(64).toString('hex'))\""
+    "generate-secret-key": "node -e \"console.log(require('crypto').randomBytes(64).toString('hex'))\"",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.1.10"
   },
   "dependencies": {
@@ -26,7 +28,9 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.16.0",
-    "mongoose": "^8.14.0"
+    "mongoose": "^8.14.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "keywords": []
 }
