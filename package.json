@@ -8,11 +8,13 @@
     "start:app": "nodemon api/index.js",
     "start:database": "docker compose up -d",
     "stop:database": "docker compose down",
-    "generate-secret-key": "node -e \"console.log(require('crypto').randomBytes(64).toString('hex'))\""
+    "generate-secret-key": "node -e \"console.log(require('crypto').randomBytes(64).toString('hex'))\"",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.1.10"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-# source ./requests/favorites/POST_Favorites.sh
+ #source ./requests/favorites/POST_Favorites.sh
 
 # Testando o POST para adicionar favorito com token válido
 curl --request POST \
@@ -13,24 +13,24 @@ curl --request POST \
   }'
 
 # Teste de acesso ao POST sem token
-# curl --request POST \
-#   --url 'http://localhost:3000/api/favorites' \
-#   --header 'Content-Type: application/json' \
-#   --data '{
-#     "userId": "id_do_usuario_aqui",
-#     "restaurantId": "fsq_id_do_restaurante_aqui",
-#     "restaurantName": "Nome do Restaurante",
-#     "restaurantLocation": "Rua Exemplo, 123"
-#   }'
+ curl --request POST \
+   --url 'http://localhost:3000/api/favorites' \
+   --header 'Content-Type: application/json' \
+   --data '{
+     "userId": "id_do_usuario_aqui",
+     "restaurantId": "fsq_id_do_restaurante_aqui",
+     "restaurantName": "Nome do Restaurante",
+     "restaurantLocation": "Rua Exemplo, 123"
+   }'
 
 # Teste de acesso ao POST com token inválido
-# curl --request POST \
-#   --url 'http://localhost:3000/api/favorites' \
-#   --header 'Authorization: Bearer <token_inválido>' \
-#   --header 'Content-Type: application/json' \
-#   --data '{
-#     "userId": "id_do_usuario_aqui",
-#     "restaurantId": "fsq_id_do_restaurante_aqui",
-#     "restaurantName": "Nome do Restaurante",
-#     "restaurantLocation": "Rua Exemplo, 123"
-#   }'
+ curl --request POST \
+   --url 'http://localhost:3000/api/favorites' \
+   --header 'Authorization: Bearer <token_inválido>' \
+   --header 'Content-Type: application/json' \
+   --data '{
+     "userId": "id_do_usuario_aqui",
+     "restaurantId": "fsq_id_do_restaurante_aqui",
+     "restaurantName": "Nome do Restaurante",
+     "restaurantLocation": "Rua Exemplo, 123"
+   }'
