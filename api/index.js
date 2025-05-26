@@ -26,7 +26,7 @@ app.use(cors());
 
 // Configuração do CORS
 app.use(cors({
-  origin: 'http://localhost:5173',  // permite requisições do frontend na porta 3001
+  origin: 'http://rank-eat.vercel.app',  // permite requisições do frontend na porta 3001
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],  // métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization'],  // cabeçalhos permitidos
 }));
