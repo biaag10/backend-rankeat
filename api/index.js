@@ -9,6 +9,8 @@ import SearchHistory from './models/SearchHistory.js'; // cria a collection de h
 import SearchHistoryRoute from './routes/search-history.route.js'; // importa as rotas de histórico de buscas
 import FavoriteRoute from './routes/favorite.route.js'; // importa as rotas de favoritos
 import Favorite from './models/Favorite.js'; // cria a collection de favoritos
+import CommentRoute from './routes/comment.route.js';
+import Comment from './models/Comment.js';
 
 // Importações para o Swagger
 import swaggerUi from 'swagger-ui-express';
@@ -41,6 +43,7 @@ app.use("/users", userRoutes); // define o prefixo para as rotas de usuário
 app.use("/secure", exampleRoute); // define o prefixo para as rotas de exemplo
 app.use('/', SearchHistoryRoute); // define o prefixo para as rotas de histórico de buscas
 app.use('/favorites', FavoriteRoute); // define o prefixo para as rotas de favoritos
+app.use('/comments', CommentRoute);
 
 app.get('/', (req, res) => {
   res.send({ message: 'API is running...' });
