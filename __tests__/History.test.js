@@ -4,9 +4,8 @@ const requestsDir = path.resolve(__dirname, '../requests');
 
 describe('Execução dos Scripts de Requisição Shell', () => {
   const scripts = [
-    'GET_Protected_Route.sh',
-    'POST_Login_User.sh',
-    'POST_Register_User.sh',
+    'search-history/GET_SearchHistory.sh',
+    'search-history/POST_SearchHistory.sh',
   ];
 
   scripts.forEach(scriptRelativePath => {

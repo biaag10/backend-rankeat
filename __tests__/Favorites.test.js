@@ -4,9 +4,8 @@ const requestsDir = path.resolve(__dirname, '../requests');
 
 describe('Execução dos Scripts de Requisição Shell', () => {
   const scripts = [
-    'GET_Protected_Route.sh',
-    'POST_Login_User.sh',
-    'POST_Register_User.sh',
+    'favorites/DELETE_Favorites.sh',
+    'favorites/POST_Favorites.sh',
   ];
 
   scripts.forEach(scriptRelativePath => {
@@ -25,4 +24,3 @@ describe('Execução dos Scripts de Requisição Shell', () => {
     });
   });
 });
-
