@@ -5,15 +5,15 @@ import verifyToken from '../middlewares/jwt.token.middleware.js';
 const router = express.Router();
 
 // Rota para criar um comentário
-router.post('/comments', verifyToken, commentController.createComment);
+router.post('/create', verifyToken, commentController.createComment);
 
 // Rota para obter todos os comentários
-router.get('/comments', verifyToken, commentController.getAllComments);
+router.get('/list', verifyToken, commentController.getAllComments);
 
 // Rota para atualizar um comentário
-router.patch('/comments/:id', verifyToken, commentController.updateComment);
+router.patch('/update/:id', verifyToken, commentController.updateComment);
 
 // Rota para deletar um comentário
-router.delete('/comments/:id', verifyToken, commentController.deleteComment);
+router.delete('/delete/:id', verifyToken, commentController.deleteComment);
 
 export default router;
