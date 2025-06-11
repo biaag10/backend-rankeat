@@ -3,9 +3,11 @@
 # Criação de comentário com token válido
 curl --request POST \
   --url 'http://localhost:3000/comments/create' \
-  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODJiZjBlNzdlYjdmNzNiZDI5ODMxN2IiLCJpYXQiOjE3NDg4ODc2OTksImV4cCI6MTc0ODg5MTI5OX0.Hg0I_bsZBT5OfYD9h03WjkcEG5O_EPRJ3SEkcBhu6rY' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODJiZjBlNzdlYjdmNzNiZDI5ODMxN2IiLCJpYXQiOjE3NDk2NDMwOTAsImV4cCI6MTc0OTY0NjY5MH0.J4q3eXkoQs_J-3TlMV-BzMzHax0I_4B-a3SkIb5Ji5s' \
   --header 'Content-Type: application/json' \
   --data '{
-    "restaurantId": "4d90ae2ffa943704d63e37c6",
-    "comment": "Comida maravilhosa, voltarei com certeza!"
-  }'
+           "userId": "682bf0e77eb7f73bd298317b",
+           "restaurantName": "Restaurante X",
+           "cuisineType": "Italiana",
+           "dishes": [{"name": "Spaghetti", "price": "25.99", "rating": 5, "comment": "Excelente prato!", "photoUrl": "https://example.com/spaghetti.jpg"}]
+         }'

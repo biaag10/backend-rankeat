@@ -2,5 +2,5 @@
 
 # Remove comentário com token válido
 curl --request DELETE \
-  --url 'http://localhost:3000/comments/delete/683dee0ffd2626f706f4e19d' \
-  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODJiZjBlNzdlYjdmNzNiZDI5ODMxN2IiLCJpYXQiOjE3NDg4ODc2OTksImV4cCI6MTc0ODg5MTI5OX0.Hg0I_bsZBT5OfYD9h03WjkcEG5O_EPRJ3SEkcBhu6rY' \
+  --url 'http://localhost:3000/comments/delete/684971e8102e24d1467404a2' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODJiZjBlNzdlYjdmNzNiZDI5ODMxN2IiLCJpYXQiOjE3NDk2NDMwOTAsImV4cCI6MTc0OTY0NjY5MH0.J4q3eXkoQs_J-3TlMV-BzMzHax0I_4B-a3SkIb5Ji5s' \
