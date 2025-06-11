@@ -1,5 +1,5 @@
-import Comment from '../models/Comment.js';
-import User from '../models/User.js';
+import Comment from '../models/Comment.js'; // Importando o modelo do comentário
+import User from '../models/User.js'; // Importando o modelo do usuário
 
 // Função para criar um comentário
 export async function createComment(data) {
@@ -37,16 +37,25 @@ export async function getAllComments() {
   }
 }
 
-// Função para atualizar um comentário
+// Função para atualizar um comentário (agora permitindo atualizar todos os campos)
 export async function updateComment(commentId, data) {
   try {
-    const updatedComment = await Comment.findByIdAndUpdate(commentId, data, { new: true });
+    // Atualiza todos os campos do comentário, incluindo nome, tipo de cozinha e pratos
+    const updatedComment = await Comment.findByIdAndUpdate(
+      commentId,
+      {
+        restaurantName: data.restaurantName,
+        cuisineType: data.cuisineType,
+        dishes: data.dishes,
+      },
+      { new: true } // Retorna o comentário atualizado
+    );
 
     if (!updatedComment) {
       throw new Error('Comentário não encontrado.');
     }
 
-    return updatedComment;
+    return updatedComment; // Retorna o comentário atualizado
   } catch (error) {
     throw new Error(`Erro ao atualizar comentário: ${error.message}`);
   }

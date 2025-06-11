@@ -46,13 +46,15 @@ export async function getAllComments(req, res) {
 export async function updateComment(req, res) {
   try {
     const { id } = req.params;
-    const { dishes } = req.body;
+    const { restaurantName, cuisineType, dishes } = req.body;
 
-    if (!dishes || dishes.length === 0) {
-      return res.status(400).json({ message: 'É necessário adicionar pelo menos um prato.' });
+    // Verifique se os campos necessários estão presentes
+    if (!restaurantName || !cuisineType || !dishes || dishes.length === 0) {
+      return res.status(400).json({ message: 'Todos os campos (nome, tipo e pratos) devem ser preenchidos.' });
     }
 
-    const updatedComment = await commentService.updateComment(id, { dishes });
+    // Atualiza o comentário com todos os campos possíveis
+    const updatedComment = await commentService.updateComment(id, { restaurantName, cuisineType, dishes });
 
     if (!updatedComment) {
       return res.status(404).json({ message: 'Comentário não encontrado.' });
