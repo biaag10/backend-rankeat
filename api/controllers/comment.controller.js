@@ -2,20 +2,24 @@ import * as commentService from '../services/comment.service.js';
 
 export async function createComment(req, res) {
   try {
-    const { restaurantId, comment } = req.body;
-    const userId = req.userId;
+    const { userId } = req; // Assumindo que o userId vem do token
+    const { restaurantName, cuisineType, dishes } = req.body;
 
-    if (!restaurantId || !comment) {
-      return res.status(400).json({ message: 'restaurantId e comment são obrigatórios.' });
+    // Validar se ao menos um prato foi enviado
+    if (!dishes || dishes.length === 0) {
+      return res.status(400).json({ message: 'É necessário adicionar pelo menos um prato.' });
     }
 
-    const newComment = await commentService.createComment({ restaurantId, userId, comment });
+    // Criar o comentário com nome do restaurante, tipo de cozinha e pratos
+    const newComment = await commentService.createComment({ userId, restaurantName, cuisineType, dishes });
     res.status(201).json({
+      success: true,
       message: 'Comentário criado com sucesso.',
       comment: newComment,
     });
   } catch (error) {
     res.status(400).json({
+      success: false,
       message: 'Erro ao criar comentário.',
       error: error.message,
     });
@@ -26,11 +30,13 @@ export async function getAllComments(req, res) {
   try {
     const comments = await commentService.getAllComments();
     res.status(200).json({
+      success: true,
       message: 'Lista de comentários carregada com sucesso.',
       comments,
     });
   } catch (error) {
     res.status(500).json({
+      success: false,
       message: 'Erro ao carregar comentários.',
       error: error.message,
     });
@@ -40,24 +46,26 @@ export async function getAllComments(req, res) {
 export async function updateComment(req, res) {
   try {
     const { id } = req.params;
-    const { comment } = req.body;
+    const { dishes } = req.body;
 
-    if (!comment) {
-      return res.status(400).json({ message: 'O campo comment é obrigatório para atualização.' });
+    if (!dishes || dishes.length === 0) {
+      return res.status(400).json({ message: 'É necessário adicionar pelo menos um prato.' });
     }
 
-    const updated = await commentService.updateComment(id, { comment });
+    const updatedComment = await commentService.updateComment(id, { dishes });
 
-    if (!updated) {
+    if (!updatedComment) {
       return res.status(404).json({ message: 'Comentário não encontrado.' });
     }
 
     res.status(200).json({
+      success: true,
       message: 'Comentário atualizado com sucesso.',
-      comment: updated,
+      comment: updatedComment,
     });
   } catch (error) {
     res.status(400).json({
+      success: false,
       message: 'Erro ao atualizar comentário.',
       error: error.message,
     });
@@ -67,18 +75,19 @@ export async function updateComment(req, res) {
 export async function deleteComment(req, res) {
   try {
     const { id } = req.params;
+    const deletedComment = await commentService.deleteComment(id);
 
-    const deleted = await commentService.deleteComment(id);
-
-    if (!deleted) {
+    if (!deletedComment) {
       return res.status(404).json({ message: 'Comentário não encontrado para exclusão.' });
     }
 
     res.status(200).json({
+      success: true,
       message: 'Comentário deletado com sucesso.',
     });
   } catch (error) {
     res.status(400).json({
+      success: false,
       message: 'Erro ao deletar comentário.',
       error: error.message,
     });
