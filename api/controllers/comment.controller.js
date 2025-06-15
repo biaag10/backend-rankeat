@@ -95,3 +95,19 @@ export async function deleteComment(req, res) {
     });
   }
 }
+
+export async function searchComments(req, res) {
+  try {
+    const { q } = req.query; // Termo de busca
+    const comments = await commentService.searchComments(q);
+    res.status(200).json(comments);
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Erro ao buscar comentários.',
+      error: error.message,
+    });
+  }
+}
+
+

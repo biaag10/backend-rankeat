@@ -75,3 +75,25 @@ export async function deleteComment(commentId) {
     throw new Error(`Erro ao deletar comentário: ${error.message}`);
   }
 }
+
+
+// Função para buscar comentários com filtro
+export async function searchComments(query) {
+  try {
+    const searchRegex = new RegExp(query, 'i'); // 'i' para case-insensitive
+    const comments = await Comment.find({
+      $or: [
+        { restaurantName: searchRegex },
+        { cuisineType: searchRegex },
+        { comment: searchRegex },
+        { 'dishes.name': searchRegex },
+        { 'dishes.comment': searchRegex },
+      ],
+    }).sort({ createdAt: -1 });
+    return comments;
+  } catch (error) {
+    throw new Error(`Erro ao buscar comentários: ${error.message}`);
+  }
+}
+
+

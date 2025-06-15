@@ -28,7 +28,7 @@ app.use(cors());
 
 // Configuração do CORS
 app.use(cors({
-  origin: 'http://localhost:5173',  // permite requisições do frontend na porta 3001
+  origin: ['http://localhost:5173', 'https://automatic-eureka-pvwwxgrpxr937p5r-5173.app.github.dev/'],  // permite requisições do frontend na porta 3001
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],  // métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization'],  // cabeçalhos permitidos
 }));
