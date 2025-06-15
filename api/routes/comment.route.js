@@ -17,3 +17,9 @@ router.patch('/update/:id', verifyToken, commentController.updateComment);
 router.delete('/delete/:id', verifyToken, commentController.deleteComment);
 
 export default router;
+
+
+// Rota para buscar comentários com filtro
+router.get("/search", verifyToken, commentController.searchComments);
+
+
