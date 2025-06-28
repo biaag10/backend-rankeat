@@ -17,13 +17,14 @@ db.connect();
 
 const app = express();
 
+
 // Configuração do CORS
 app.use(cors({
-  origin: '*',  // Permite qualquer origem, você pode adicionar URLs específicas no lugar do '*'
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],  // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'],  // Cabeçalhos permitidos
-  preflightContinue: true, // Habilita a resposta para as requisições OPTIONS
-  optionsSuccessStatus: 204  // Algumas versões antigas do Node podem precisar dessa configuração para o status correto
+  origin: ['http://localhost:5173', 'https://rank-eat.vercel.app'], // permite requisições do frontend
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // métodos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'], // cabeçalhos permitidos
+  // preflightContinue: true, // Habilita a resposta para as requisições OPTIONS
+  // optionsSuccessStatus: 204  // Algumas versões antigas do Node podem precisar dessa configuração para o status correto
 }));
 
 app.use(express.json()); // para aceitar JSON no corpo das requisições
