@@ -20,7 +20,7 @@ const app = express();
 
 // Configuração do CORS
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://automatic-eureka-pvwwxgrpxr937p5r-5173.app.github.dev/', 'https://rank-eat.vercel.app'], // permite requisições do frontend
+  origin: '*', // permite requisições de qualquer origem
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization'], // cabeçalhos permitidos
 }));
